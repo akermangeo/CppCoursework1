@@ -8,9 +8,6 @@
 
 
 
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -35,7 +32,7 @@ int main(void)
 		{
 			max_num = num;
 		}
-		printf("%d %f %f %f\n", count, num, max_num, min_num);
+		// printf("%d %f %f %f\n", count, num, max_num, min_num);
 		printf("Input value %d: ", count);
 		scanf("%f", &num);
 		count++;
