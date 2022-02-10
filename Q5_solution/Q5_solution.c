@@ -11,7 +11,7 @@ program into functions and dividethem between files in an ordered way.)**/
 
 int main(void)
 {
-	int* p_fractions_length
+	int* p_fractions_length;
 	int* p_fractions = find_fractions(p_fractions_length);
 	print_fractions(p_fractions, p_fractions_length);
 	return EXIT_SUCCESS;
