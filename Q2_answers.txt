@@ -8,4 +8,6 @@
 	times executed = 3
 
 (d) for (i=10; i==1; i-=4);
-	times executed = inf (or limit on negative size of i, e.g if i is a (signed) int then the smallest is can become is -2147483648 so the loop would be executed approximately 5.4x10^8 before an error is throuwn or the program crashes.  This is assuming that whatever is inside the loop does not break first.)
+	times executed = inf (or limit on negative size of i, e.g if i is a (signed) int then the smallest is can become is -2147483648
+	so the loop would be executed approximately 5.4x10^8 times before an error is throuwn or the program crashes.  This is assuming 
+	that whatever is inside the loop does not break first.)
