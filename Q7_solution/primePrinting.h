@@ -1,0 +1,1 @@
+void print_primes(const int* p_primes, int primes_length);

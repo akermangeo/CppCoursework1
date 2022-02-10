@@ -143,10 +143,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="primePrinting.c" />
     <ClCompile Include="Q7_solution.c" />
     <ClCompile Include="sieve.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="primePrinting.h" />
     <ClInclude Include="sieve.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
