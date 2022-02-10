@@ -2,7 +2,7 @@
 
 #include "fractionFinding.h"
 
-int* find_fractions()
+int* find_fractions(int* fractions_length)
 {
     int capacity = 10;
     int* fractions = (int*) malloc(10 * sizeof(int));
@@ -33,6 +33,5 @@ int* find_fractions()
     fractions[1] = 2.;
     fractions[2] = 3.;
     fractions[3] = 4.;
-    fractions[4] = 5.;
     return fractions;
 }
