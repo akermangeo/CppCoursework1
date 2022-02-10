@@ -8,4 +8,4 @@
 	times executed = 3
 
 (d) for (i=10; i==1; i-=4);
-	times executed = inf
+	times executed = 0
