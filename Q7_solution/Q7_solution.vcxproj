@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Q7_solution.cpp" />
+    <ClCompile Include="Q7_solution.c" />
     <ClCompile Include="sieve.c" />
   </ItemGroup>
   <ItemGroup>
