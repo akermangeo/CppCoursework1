@@ -42,7 +42,7 @@ int* aristhothenes_sieve(int max_prime, int* p_primes_length)
 		p_prime_candidates[index].is_checked = false;
 	}
 	
-	//Run the sieving process to mark the non-primes
+	//Run the sieving process to mark the non-primes.
 	int prime_count = sieve_for_primes(p_prime_candidates, max_prime-1);
 
 	//Transfer the primes to the array for return.
@@ -83,10 +83,10 @@ int* aristhothenes_sieve_advanced(int max_prime, int* p_primes_length)
 		p_prime_candidates[index].is_checked = false;
 	}
 
-	//Run the sieving process to mark the non-primes
+	//Run the sieving process to mark the non-primes.
 	int sieve_prime_count = sieve_for_primes(p_prime_candidates, sieve_length);
 
-	//Transfer the primes to the array for return. Make space for 2 aswell
+	//Transfer the primes to the array for return. Make space for 2 aswell.
 	int total_prime_count = sieve_prime_count + 1;
 	int* primes = (int*)malloc(total_prime_count * sizeof(int));
 	*primes = 2;
