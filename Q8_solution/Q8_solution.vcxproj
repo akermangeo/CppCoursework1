@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="polynomialAdd.c" />
     <ClCompile Include="polynomialFactory.c" />
     <ClCompile Include="polynomialMultiply.c" />
     <ClCompile Include="Q8_test.c" />

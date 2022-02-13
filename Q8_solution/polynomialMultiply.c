@@ -10,10 +10,7 @@
 /// <returns>The result of the multiplication</returns>
 struct polynomial* multiply_by_node(struct polynomial* p_poly, struct polynomial* p_node);
 
-/// <summary>
-/// Adds to polynomials together and stores the result in p_poly_2
-/// </summary>
-struct polynomial* add_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
+
 
 struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
 {
@@ -28,7 +25,16 @@ struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_po
         free_polynomial(p_next_term);
     }
 
-    //pp_head_poly_4 = simplyify(pp_head_poly_3, degree_1 + degree_2);
+    return p_result;
+}
 
+struct polynomial* multiply_by_node(struct polynomial* p_poly, struct polynomial* p_node)
+{
+    struct polynomial* p_result = create_node();
+    while (p_poly->p_next != NULL)
+    {
+        p_poly->coefficient *= p_node->coefficient;
+        p_poly->exponent += p_node->exponent;
+    }
     return p_result;
 }
