@@ -1,12 +1,5 @@
 #include "polynomials.h"
 
-/// <summary>
-/// Adds 2 polynomials of the same degree together and stores the result in p_poly_1.
-/// </summary>
-/// <param name="p_poly_1">The polynomial to add and store the result in.</param>
-/// <param name="p_poly_2">The second polynomial to add.</param>
-void add_same_degree_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
-
 struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
     //early returns
@@ -57,7 +50,7 @@ struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomia
     return p_result;
 }
 
-void add_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
+void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
     //early returns
     if (p_poly_1 == NULL)
@@ -102,32 +95,8 @@ void add_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
             *p_poly_1 = *p_poly_1->p_next;
             free(p_poly_1->p_next);
         }
-        if (p_poly_2->p_next != NULL)
-        {
-            *p_poly_2 = *p_poly_2->p_next;
-            free(p_poly_2->p_next);
-        }
-        add_in_place(p_poly_1, p_poly_2);
-    }
 
-
-}
-
-
-
-void add_same_degree_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
-{
-    p_poly_1->coefficient += p_poly_2->coefficient;
-    if (p_poly_2->p_next != NULL)
-    {
-        if (p_poly_1->p_next == NULL)
-        {
-            p_poly_1->p_next = copy(p_poly_2);
-        }
-        else
-        {
-            add_in_place(p_poly_1->p_next, p_poly_2->p_next);
-        }
+        add_in_place(p_poly_1, p_poly_2->p_next);
     }
 }
 

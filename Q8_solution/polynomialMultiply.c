@@ -8,9 +8,9 @@
 /// <param name="p_poly">The polynomial to multiply.</param>
 /// <param name="p_node">The node to mjultiply.</param>
 /// <returns>The result of the multiplication</returns>
-struct polynomial* multiply_by_node(struct polynomial* p_poly, const struct polynomial* p_node);
+struct polynomial* multiply_by_node(const struct polynomial* p_poly, const struct polynomial* p_node);
 
-struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
+struct polynomial* multiply(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
     struct polynomial* p_result = multiply_by_node(p_poly_1, p_poly_2);
 

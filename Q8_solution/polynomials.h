@@ -25,7 +25,7 @@ struct polynomial* create_node();
 /// Prints the polynomial to the standard output.
 /// </summary>
 /// <param name="p_poly">The polynomial to print.</param>
-void print_poly(struct polynomial* p_poly);
+void print_poly(const struct polynomial* p_poly);
 
 /// <summary>
 /// Adds two polynomials together and returns a pointer to the new polynomial.
@@ -40,7 +40,7 @@ struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomia
 /// </summary>
 /// <param name="p_poly_1">The polynomial to add and store the result in.</param>
 /// <param name="p_poly_2">The second polynomial to add.</param>
-void add_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
+void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
 
 /// <summary>
 /// Subtracts poly 2 from poly1, returns a pointer to the result.
@@ -48,7 +48,7 @@ void add_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
 /// <param name="p_poly_1">The polynomial to subtract from.</param>
 /// <param name="p_poly_2">The polynomial to subtract.</param>
 /// <returns>The result of the subtraction.</returns>
-struct polynomial* subtract(struct polynomial* p_poly1, struct polynomial* p_poly2);
+struct polynomial* subtract(const struct polynomial* p_poly1, const struct polynomial* p_poly2);
 
 /// <summary>
 /// Multiplies 2 polynomials together, returns a pointer to the result.
@@ -56,7 +56,7 @@ struct polynomial* subtract(struct polynomial* p_poly1, struct polynomial* p_pol
 /// <param name="p_poly_1">The first polynomial to multiply.</param>
 /// <param name="p_poly_2">The second polynomial to multiply.</param>
 /// <returns>The result of the multiplication.</returns>
-struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
+struct polynomial* multiply(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
 
 /// <summary>
 /// Evaluates the polynomial at the specified point x using Horner's method.
@@ -64,12 +64,12 @@ struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_po
 /// <param name="p_poly">A pointer to the poltnomial to evaluate.</param>
 /// <param name="x">Value at which to evaluate the polynomial.</param>
 /// <returns>The result of the evaluation.</returns>
-float evaluate(struct polynomial* p_poly, float x);
+float evaluate(const struct polynomial* p_poly, float x);
 
 /// <summary>
 /// Coppies a polynomial and returns a pointer to the copy.
 /// </summary>
-struct polynomial* copy(struct polynomial* p_poly);
+struct polynomial* copy(const struct polynomial* p_poly);
 
 /// <summary>
 /// Frees all memory assaciated with a polynomial.

@@ -10,7 +10,7 @@ int main()
 }
 
 
-void print_poly(struct polynomial* p_poly)
+void print_poly(const struct polynomial* p_poly)
 {
     printf("%fx^%d", p_poly->coefficient, p_poly->exponent);
     p_poly = p_poly->p_next;
