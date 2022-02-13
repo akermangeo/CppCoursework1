@@ -67,7 +67,12 @@ struct polynomial* multiply(struct polynomial p_poly_1, struct polynomial p_poly
 float evaluate(struct polynomial* p_poly, float x);
 
 /// <summary>
+/// Coppies a polynomial and returns a pointer to the copy.
+/// </summary>
+struct polynomial* copy(struct polynomial* p_poly);
+
+/// <summary>
 /// Frees all memory assaciated with a polynomial.
 /// </summary>
 /// <param name="p_poly">A pointer to the polynomial to free.</param>
-void free_poly(struct polynomial* p_poly);
+void free_polynomial(struct polynomial* p_poly);

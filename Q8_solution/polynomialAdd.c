@@ -89,7 +89,7 @@ void add_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
 {
     if (p_poly_1->exponent == p_poly_2->exponent)
     {
-        return add_same_degreeIin_pace(p_poly_1, p_poly_2);
+        return add_same_degree_in_place(p_poly_1, p_poly_2);
     }
 
     if (p_poly_1->exponent > p_poly_2->exponent)

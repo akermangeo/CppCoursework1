@@ -23,7 +23,7 @@ struct polynomial* read_polynomial(int degree)
 {
     int coefficient;
     printf("Please input coefficient for x^%d.", degree);
-    scanf("%f", &coefficient);
+    scanf_s("%f", &coefficient);
     struct polynomial* p_poly = create_node();
     p_poly->coefficient = coefficient;
     p_poly->exponent = degree;
