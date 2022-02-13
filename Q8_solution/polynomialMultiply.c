@@ -8,9 +8,7 @@
 /// <param name="p_poly">The polynomial to multiply.</param>
 /// <param name="p_node">The node to mjultiply.</param>
 /// <returns>The result of the multiplication</returns>
-struct polynomial* multiply_by_node(struct polynomial* p_poly, struct polynomial* p_node);
-
-
+struct polynomial* multiply_by_node(struct polynomial* p_poly, const struct polynomial* p_node);
 
 struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
 {
@@ -28,13 +26,24 @@ struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_po
     return p_result;
 }
 
-struct polynomial* multiply_by_node(struct polynomial* p_poly, struct polynomial* p_node)
+struct polynomial* multiply_by_node(const struct polynomial* p_poly, const struct polynomial* p_node)
 {
     struct polynomial* p_result = create_node();
-    while (p_poly->p_next != NULL)
+    struct polynomial* p_to_return = p_result;
+    p_result->coefficient = p_poly->coefficient * p_node->coefficient;
+    p_result->exponent = p_poly->exponent + p_node->exponent;
+    p_poly = p_poly->p_next;
+
+    while (p_poly != NULL)
     {
-        p_poly->coefficient *= p_node->coefficient;
-        p_poly->exponent += p_node->exponent;
+        p_result->p_next = create_node();
+        p_result = p_result->p_next;
+
+        p_result->coefficient = p_poly->coefficient * p_node->coefficient;
+        p_result->exponent = p_poly->exponent + p_node->exponent;
+
+        p_poly = p_poly->p_next;
     }
-    return p_result;
+    p_result->p_next = NULL;
+    return p_to_return;
 }

@@ -2,60 +2,35 @@
 
 int main()
 {
-    return EXIT_SUCCESS;
+    struct polynomial* poly1 = polynomial_factory_method();
+    struct polynomial* poly2 = polynomial_factory_method();
+    print_poly(poly1);
+    print_poly(poly2);
+    print_poly(multiply(poly1, poly2));
 }
 
 
-void print_poly(struct polynomial* p_head_poly, int degree)
+void print_poly(struct polynomial* p_poly)
 {
-    float abs_coeff;
-    struct polynomial* ptr = p_head_poly;
-
-    while (ptr != NULL)
+    printf("%fx^%d", p_poly->coefficient, p_poly->exponent);
+    p_poly = p_poly->p_next;
+    while (p_poly != NULL)
     {
-        if (ptr->exponent != 0)
+        if (p_poly->coefficient >= 0)
         {
-            if (ptr->coefficient >= 0)
-            {
-                printf(" + ");
-            }
-            else
-            {
-                printf(" - ");
-            }
+            printf(" + ");
+            printf("%fx^%d", p_poly->coefficient, p_poly->exponent);
         }
-        abs_coeff = abs(ptr->coefficient);
-        printf("%fx^%d", abs_coeff, ptr->exponent);
-        ptr = ptr->p_next;
+        else
+        {
+            printf(" - ");
+            printf("%fx^%d", p_poly->coefficient, p_poly->exponent);
+        }
+        p_poly = p_poly->p_next;
+        
     }
     printf("\n");
 }
-
-//float evaluate(struct polynomial* p_poly, float x, int degree)
-//{
-//    float value;
-//    int i, j;
-//    struct polynomial* p_temp_poly = p_poly;
-//
-//    for (i = degree; i >= 0; i--)
-//    {
-//        p_temp_poly = p_poly;
-//
-//        for (j = 0; j < i; j++)
-//        {
-//            p_temp_poly = p_temp_poly->p_next;
-//        }
-//
-//        value += p_temp_poly->coefficient;
-//        if (i != 0)
-//        {
-//            value *= x;
-//        }
-//    }
-//
-//    printf("%f", value);
-//    return;
-//}
 
 struct polynomial* copy(struct polynomial* p_poly) 
 {

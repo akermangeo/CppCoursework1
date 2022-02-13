@@ -21,7 +21,7 @@ struct polynomial* polynomial_factory_method()
 
 struct polynomial* read_polynomial(int degree)
 {
-    int coefficient;
+    float coefficient;
     printf("Please input coefficient for x^%d.", degree);
     scanf_s("%f", &coefficient);
     struct polynomial* p_poly = create_node();
@@ -34,7 +34,7 @@ struct polynomial* read_polynomial(int degree)
     else
     {
         struct polynomial* next_poly = read_polynomial(degree - 1);
-        p_poly->p_next = NULL;
+        p_poly->p_next = next_poly;
     }
     return p_poly;
 }

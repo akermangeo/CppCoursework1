@@ -4,7 +4,7 @@
 
 struct polynomial
 { 
-    int coefficient;
+    float coefficient;
     int exponent;
     struct polynomial *p_next;
 };
@@ -56,7 +56,7 @@ struct polynomial* subtract(struct polynomial* p_poly1, struct polynomial* p_pol
 /// <param name="p_poly_1">The first polynomial to multiply.</param>
 /// <param name="p_poly_2">The second polynomial to multiply.</param>
 /// <returns>The result of the multiplication.</returns>
-struct polynomial* multiply(struct polynomial p_poly_1, struct polynomial p_poly_2);
+struct polynomial* multiply(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
 
 /// <summary>
 /// Evaluates the polynomial at the specified point x using Horner's method.
