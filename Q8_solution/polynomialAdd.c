@@ -104,7 +104,7 @@ void add_in_place(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
         }
         if (p_poly_2->p_next != NULL)
         {
-            *p_poly_2 = *p_poly_1->p_next;
+            *p_poly_2 = *p_poly_2->p_next;
             free(p_poly_2->p_next);
         }
         add_in_place(p_poly_1, p_poly_2);

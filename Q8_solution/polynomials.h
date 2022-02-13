@@ -33,7 +33,7 @@ void print_poly(struct polynomial* p_poly);
 /// <param name="p_poly_1">The first polynomial to add.</param>
 /// <param name="p_poly_2">The second polynomial to add.</param>
 /// <returns>The result of the addition.</returns>
-struct polynomial* add(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
+struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
 
 /// <summary>
 /// Adds to polynomials together and stores the result in p_poly_2.

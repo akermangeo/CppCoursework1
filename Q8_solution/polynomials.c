@@ -34,7 +34,7 @@ void print_poly(struct polynomial* p_poly)
 
 
 //TODO rename
-struct polynomial* copy(struct polynomial* p_poly) 
+struct polynomial* copy(const struct polynomial* p_poly) 
 {
     struct polynomial* p_copy = create_node();
     *p_copy = *p_poly;
