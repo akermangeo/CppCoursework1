@@ -6,7 +6,7 @@ int main()
     struct polynomial* poly2 = polynomial_factory_method();
     print_poly(poly1);
     print_poly(poly2);
-    print_poly(multiply(poly1, poly2));
+    print_poly(add(poly1, poly2));
 }
 
 

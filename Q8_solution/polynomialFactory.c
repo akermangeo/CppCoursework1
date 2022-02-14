@@ -41,7 +41,11 @@ struct polynomial* read_polynomial(int degree)
 
 struct polynomial* create_node()
 {
-    return (struct polynomial*)malloc(sizeof(struct polynomial));
+    struct polynomial* node = (struct polynomial*)malloc(sizeof(struct polynomial));
+    node->coefficient = 0;
+    node->exponent = 0;
+    node->p_next = NULL;
+    return node;
 }
 
 

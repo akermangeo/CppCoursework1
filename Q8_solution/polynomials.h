@@ -16,7 +16,7 @@ struct polynomial
 struct polynomial* polynomial_factory_method();
 
 /// <summary>
-/// Creates a single uninitialised polynomial node.
+/// Creates a single uninitialised polynomial node initialised to 0x^0 with NULL pointer to next.
 /// </summary>
 /// <returns>A pointer to the new node.</returns>
 struct polynomial* create_node();
@@ -63,12 +63,13 @@ struct polynomial* multiply(const struct polynomial* p_poly_1, const struct poly
 /// </summary>
 /// <param name="p_poly">A pointer to the poltnomial to evaluate.</param>
 /// <param name="x">Value at which to evaluate the polynomial.</param>
-/// <returns>The result of the evaluation.</returns>
 float evaluate(const struct polynomial* p_poly, float x);
 
 /// <summary>
-/// Coppies a polynomial and returns a pointer to the copy.
+/// Coppies a polynomial and returns a pointer to the copy
 /// </summary>
+/// <param name="p_poly">The polynomial to copy.</param>
+/// <returns>A pointer to the copy.</returns>
 struct polynomial* copy(const struct polynomial* p_poly);
 
 /// <summary>
