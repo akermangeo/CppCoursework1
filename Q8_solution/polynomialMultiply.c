@@ -29,8 +29,16 @@ struct polynomial* multiply(const struct polynomial* p_poly_1, const struct poly
 struct polynomial* multiply_by_node(const struct polynomial* p_poly, const struct polynomial* p_node)
 {
     struct polynomial* p_result = create_node();
-    struct polynomial* p_to_return = p_result;
     p_result->coefficient = p_poly->coefficient * p_node->coefficient;
+
+    //If this coefficient is 0 then one of the polynomials is constant 0 so we can return now.
+    if (p_result->coefficient == 0)
+    {
+        return p_result;
+    }
+
+    //None of the polynomials have 0 as a coefficient for any term...
+    struct polynomial* p_to_return = p_result;
     p_result->exponent = p_poly->exponent + p_node->exponent;
     p_poly = p_poly->p_next;
 
