@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="polynomialAdd.c" />
+    <ClCompile Include="polynomialCases.c" />
     <ClCompile Include="polynomialFactory.c" />
     <ClCompile Include="polynomialMultiply.c" />
     <ClCompile Include="polynomials.c" />

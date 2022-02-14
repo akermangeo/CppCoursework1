@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 #include "polynomials.h"
 
 /// <summary>
@@ -12,7 +10,7 @@ struct polynomial* read_polynomial(int degree);
 struct polynomial* polynomial_factory_method()
 {
     int max_degree;
-    printf("Please enter the degree of the polynomial.");
+    printf("Please enter the degree of the polynomial: ");
     scanf_s("%i", &max_degree);
 
     struct polynomial* p_poly = read_polynomial(max_degree);
@@ -28,7 +26,7 @@ struct polynomial* polynomial_factory_method()
 struct polynomial* read_polynomial(int degree)
 {
     float coefficient;
-    printf("Please input coefficient for x^%d.", degree);
+    printf("Please input coefficient for x^%d: ", degree);
     scanf_s("%f", &coefficient);
 
     struct polynomial* next_poly;
@@ -55,6 +53,11 @@ struct polynomial* read_polynomial(int degree)
 struct polynomial* create_node()
 {
     struct polynomial* node = (struct polynomial*)malloc(sizeof(struct polynomial));
+    if (node == NULL)
+    {
+        printf("Memory allocation failure. (initialise_poly)\n");
+        exit(1);
+    }
     node->coefficient = 0;
     node->exponent = 0;
     node->p_next = NULL;
