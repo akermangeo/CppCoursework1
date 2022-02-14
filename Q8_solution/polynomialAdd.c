@@ -124,20 +124,21 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
             p_poly_1 = p_poly_1->p_next;
             p_poly_2 = p_poly_2->p_next;
         }
-
-        //p_poly_2 may still have a tail that is unacounted for.
-        //Notice the tail will not be just 0 as this case is handled at the start of the function.
-        if (p_poly_2 != NULL)
-        {
-            struct polynomial* p_remaining_terms = copy(p_poly_2);
-            *pp_next_node = p_remaining_terms;
-        }
-
-
-        //The result could be 0 in which case the pointer will be NULL at this point
-        if (p_poly_1_copy == NULL)
-        {
-            p_poly_1_copy = create_node();
-        }
     }
+
+    //p_poly_2 may still have a tail that is unacounted for.
+    //Notice the tail will not be just 0 as this case is handled at the start of the function.
+    if (p_poly_2 != NULL)
+    {
+        struct polynomial* p_remaining_terms = copy(p_poly_2);
+        *pp_next_node = p_remaining_terms;
+    }
+
+
+    //The result could be 0 in which case the pointer will be NULL at this point
+    if (p_poly_1_copy == NULL)
+    {
+        p_poly_1_copy = create_node();
+    }
+    
 }
