@@ -37,6 +37,7 @@ void print_poly(const struct polynomial* p_poly)
 struct polynomial* copy(const struct polynomial* p_poly) 
 {
     struct polynomial* p_copy = create_node();
+    struct poynomial* P_copy_root = p_copy;
     *p_copy = *p_poly;
     while (p_poly->p_next != NULL)
     {
@@ -46,7 +47,7 @@ struct polynomial* copy(const struct polynomial* p_poly)
         *p_copy = *p_poly;
     }
     p_copy->p_next = NULL;
-    return p_copy;
+    return P_copy_root;
 }
 
 void free_polynomial(struct polynomial* p_poly)

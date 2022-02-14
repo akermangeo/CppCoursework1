@@ -9,7 +9,6 @@
 /// <returns>A pointer to thr created polynomial.</returns>
 struct polynomial* read_polynomial(int degree);
 
-
 struct polynomial* polynomial_factory_method()
 {
     int max_degree;
@@ -17,6 +16,8 @@ struct polynomial* polynomial_factory_method()
     scanf_s("%i", &max_degree);
 
     struct polynomial* p_poly = read_polynomial(max_degree);
+
+    //If all the input coefficients were 0 then this will be NULL.
     if (p_poly == NULL)
     {
         p_poly = create_node();
