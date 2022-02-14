@@ -23,7 +23,7 @@ int main(void)
 	min_num = num;
 
 	while (num >= 0.)
-	{
+	{		
 		if (num < min_num)
 		{
 			min_num = num;
@@ -32,10 +32,12 @@ int main(void)
 		{
 			max_num = num;
 		}
+
+		count++;
 		// printf("%d %f %f %f\n", count, num, max_num, min_num);
 		printf("Input value %d: ", count);
 		scanf("%f", &num);
-		count++;
+
 	}
 
 	if (count == 1)
