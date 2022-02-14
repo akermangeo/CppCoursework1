@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <math.h>
 
+/// <summary>
+/// A struct to represent a polynomial node. It is assumed that p_next always points to a node of strictly lower exponent.
+/// The last node in the polynomial will have p_next pointing to NULL. 
+/// </summary>
 struct polynomial
 { 
     float coefficient;
