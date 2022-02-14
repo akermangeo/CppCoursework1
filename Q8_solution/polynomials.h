@@ -4,7 +4,8 @@
 
 /// <summary>
 /// A struct to represent a polynomial node. It is assumed that p_next always points to a node of strictly lower exponent.
-/// The last node in the polynomial will have p_next pointing to NULL. 
+/// The last node in the polynomial will have p_next pointing to NULL. None of the coefficients can be 0 unless the
+/// polynomial is the constant polynomial 0.
 /// </summary>
 struct polynomial
 { 
