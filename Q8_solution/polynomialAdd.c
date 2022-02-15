@@ -134,7 +134,6 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
         *pp_next_node = p_remaining_terms;
     }
 
-
     //The result could be 0 in which case the pointer will be NULL at this point
     if (p_poly_1_copy == NULL)
     {
