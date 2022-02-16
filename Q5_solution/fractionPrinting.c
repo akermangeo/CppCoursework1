@@ -2,21 +2,24 @@
 
 #include "fractionPrinting.h"
 
-void static print_fraction(int numerator1, int numerator2, int denominator1, int denominator2);
+/// <summary>
+/// Prints an individual fraction.
+/// </summary>
+/// <param name="numerator">The numerator.</param>
+/// <param name="denominator">The denominator.</param>
+void static print_fraction(int numerator, int denominator);
 
 void print_fractions(const int* p_fractions, int fractions_length)
 {
-	for (int index = 0; index < fractions_length * 4; index += 4)
+	for (int index = 0; index < fractions_length * 2; index += 2)
 	{
-		int numerator1 = p_fractions[index];
-		int numerator2 = p_fractions[index + 1];
-		int denominator1 = p_fractions[index + 2];
-		int denominator2 = p_fractions[index + 3];
-		print_fraction(numerator1, numerator2, denominator1, denominator2);
+		int numerator = p_fractions[index];
+		int denominator = p_fractions[index + 1];
+		print_fraction(numerator, denominator);
 	}
 }
 
-void static print_fraction(int numerator1, int numerator2, int denominator1, int denominator2)
+void static print_fraction(int numerator, int denominator)
 {
-	printf("%d, %d, %d, %d", numerator1, numerator2, denominator1, denominator2);
+	printf("%d / %d \n", numerator, denominator);
 }

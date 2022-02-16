@@ -4,5 +4,5 @@
 /// </summary>
 /// <param name="p_fractions">The fractions to print.</param>
 /// <param name="fractions_length">The length of fractions array.</param>
-void print_fractions(const int* p_fractions, int fractions_length);
+void print_fractions(const int* p_fractions, int fractions_length)
 
