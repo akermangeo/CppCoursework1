@@ -1,4 +1,5 @@
 #include "polynomials.h"
+#include "polynomialCases.h"
 
 int main()
 {
@@ -139,27 +140,4 @@ void free_polynomial(struct polynomial* p_poly)
         p_poly = p_next_poly;
     }
     free(p_poly);
-}
-
-double evaluate(struct polynomial* p_poly, double x)
-{
-    double value = 0;
-    struct polynomial* p_temp_poly = p_poly;
-    int exp1, exp2 = p_temp_poly->exponent;
-
-    while (p_temp_poly != NULL)
-    {
-        exp1 = p_temp_poly->exponent;
-        value += p_temp_poly->coefficient;
-
-        if (p_temp_poly->exponent != 0)
-        {
-            value *= x;
-        }
-
-        exp2 = exp1;
-        p_temp_poly = p_temp_poly->p_next;
-    }
-
-    return value;
 }

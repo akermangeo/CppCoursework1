@@ -1,4 +1,20 @@
 #include "polynomials.h"
+#include "polynomialCases.h"
+
+/// <summary>
+/// Evaluates the polynomial at the specified point x using Horner's method.
+/// </summary>
+/// <param name="p_poly">A pointer to the poltnomial to evaluate.</param>
+/// <param name="x">Value at which to evaluate the polynomial.</param>
+/// <returns>The result of the evaluation.</returns>
+double evaluate(const struct polynomial* p_poly, const double x);
+
+/// <summary>
+/// Asks the user whether they want to store a polynomial.
+/// </summary>
+/// <returns>"i" if the polynomial is to replace polynomial_i, for i = 1,2.
+///          "0" if the polynomial is not to be stored</returns>
+int store_polynomial();
 
 void case_3(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
 {
@@ -39,7 +55,6 @@ void case_4(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
         return;
     }
 
-    struct polynomial* p_poly_temp;
     struct polynomial* p_poly_temp1;
     struct polynomial* p_poly_temp2;
 
@@ -64,7 +79,7 @@ void case_4(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
         return;
     }
 
-    p_poly_temp = add(p_poly_temp1, p_poly_temp2);
+    struct polynomial* p_poly_temp = add(p_poly_temp1, p_poly_temp2);
     printf("Subtraction = ");
     print_poly(p_poly_temp);
 
@@ -74,7 +89,7 @@ void case_4(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
         free_polynomial(p_poly_1);
         p_poly_1 = p_poly_temp;
     }
-    if (store == 2)
+    else if (store == 2)
     {
         free_polynomial(p_poly_2);
         p_poly_2 = p_poly_temp;
@@ -84,14 +99,11 @@ void case_4(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
         free_polynomial(p_poly_temp);
     }
     //
-
     free_polynomial(p_poly_temp1);
 }
 
 void case_5(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
 {
-    struct polynomial* p_poly_temp;
-
     int store = store_polynomial();
     if (store != 1 && store != 2 && store != 0)
     {
@@ -99,7 +111,7 @@ void case_5(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
         return;
     }
 
-    p_poly_temp = multiply(p_poly_1, p_poly_2);
+    struct polynomial* p_poly_temp = multiply(p_poly_1, p_poly_2);
     printf("Product = ");
     print_poly(p_poly_temp);
     
@@ -121,7 +133,7 @@ void case_5(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
     //
 }
 
-void case_6(struct polynomial* p_poly_1, struct polynomial* p_poly_2)
+void case_6(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
     int poly_eval;
     printf("Which polynomial would you like to evaluate? (1/2) ");
@@ -158,4 +170,27 @@ int store_polynomial()
     scanf_s("%d", &store);
 
     return store;
+}
+
+double evaluate(const struct polynomial* p_poly, const double x)
+{
+    double value = 0;
+    struct polynomial* p_temp_poly = p_poly;
+    int exp1, exp2 = p_temp_poly->exponent;
+
+    while (p_temp_poly != NULL)
+    {
+        exp1 = p_temp_poly->exponent;
+        value += p_temp_poly->coefficient;
+
+        if (p_temp_poly->exponent != 0)
+        {
+            value *= x;
+        }
+
+        exp2 = exp1;
+        p_temp_poly = p_temp_poly->p_next;
+    }
+
+    return value;
 }
