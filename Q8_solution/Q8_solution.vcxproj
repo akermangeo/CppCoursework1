@@ -146,6 +146,7 @@
     <ClCompile Include="polynomials.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="polynomialCases.h" />
     <ClInclude Include="polynomials.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
