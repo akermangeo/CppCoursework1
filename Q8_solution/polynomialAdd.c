@@ -35,6 +35,10 @@ struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomia
         }
         else if (p_poly_1->coefficient + p_poly_2->coefficient != 0)
         {
+            
+            
+            
+            
             *pp_result_next_node = create_node();
             **pp_result_next_node = *p_poly_1;
             (* pp_result_next_node)->coefficient += p_poly_2->coefficient;
@@ -105,12 +109,11 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
         }
         else if (p_poly_1->exponent < p_poly_2->exponent)
         {
-            //add a new node into p_poly_1
-            struct polynomial* p_temp_node = *pp_next_node;
-            *pp_next_node = create_node();
-            **pp_next_node = *p_poly_2;
-            pp_next_node = &(*pp_next_node)->p_next;
-            *pp_next_node = p_temp_node;
+            struct polynomial* new_node = create_node();
+            *new_node = *p_poly_1;
+            *p_poly_1 = *p_poly_2;
+            p_poly_1->p_next = new_node;
+            p_poly_1 = p_poly_1->p_next;
             p_poly_2 = p_poly_2->p_next;
         }
         //If the sum is 0 we skip it unless it is the original node.
