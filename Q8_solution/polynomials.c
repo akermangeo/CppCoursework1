@@ -126,19 +126,19 @@ int main()
 
 void print_poly(const struct polynomial* p_poly)
 {
-    printf("%fx^%d", p_poly->coefficient, p_poly->exponent);
+    printf("%.2fx^%d", p_poly->coefficient, p_poly->exponent);
     p_poly = p_poly->p_next;
     while (p_poly != NULL)
     {
         if (p_poly->coefficient >= 0)
         {
             printf(" + ");
-            printf("%fx^%d", p_poly->coefficient, p_poly->exponent);
+            printf("%.2fx^%d", p_poly->coefficient, p_poly->exponent);
         }
         else
         {
             printf(" - ");
-            printf("%fx^%d", fabs(p_poly->coefficient), p_poly->exponent);
+            printf("%.2fx^%d", fabs(p_poly->coefficient), p_poly->exponent);
         }
         p_poly = p_poly->p_next;
         
