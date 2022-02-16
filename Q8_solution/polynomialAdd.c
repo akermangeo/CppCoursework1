@@ -85,6 +85,7 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
         {
             p_poly_1->p_next = copy(p_poly_2->p_next);
         }
+        //TODO Check this is necessary
         else
         {
             p_poly_1->p_next = NULL;
@@ -92,8 +93,8 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
         return;
     }
     
+    struct polynomial* p_poly_1_copy = p_poly_1;
     struct polynomial** pp_next_node = &p_poly_1;
-    const struct polynomial* p_poly_1_copy = p_poly_1;
 
     while (p_poly_1 != NULL && p_poly_2 != NULL)
     {
@@ -112,15 +113,28 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
             *pp_next_node = p_temp_node;
             p_poly_2 = p_poly_2->p_next;
         }
-        else if (p_poly_1->coefficient + p_poly_2->coefficient != 0)
+        //If the sum is 0 we skip it unless it is the original node.
+        else if (p_poly_1->coefficient + p_poly_2->coefficient == 0 && (p_poly_1_copy != p_poly_1 || p_poly_1->p_next != NULL))
+        {
+            //If they exist, shift the poly_1 nodes up the chain.
+            if (p_poly_1->p_next != NULL)
+            {
+                struct polynomial* temp_to_delete = p_poly_1->p_next;
+                *p_poly_1 = *p_poly_1->p_next;
+                free(temp_to_delete);
+            }
+            else
+            {
+                free(p_poly_1);
+                p_poly_1 = NULL;
+                *pp_next_node = NULL;
+            }
+            p_poly_2 = p_poly_2->p_next;
+        }
+        else 
         {
             (*pp_next_node)->coefficient += p_poly_2->coefficient;
             pp_next_node = &(*pp_next_node)->p_next;
-            p_poly_1 = p_poly_1->p_next;
-            p_poly_2 = p_poly_2->p_next;
-        }
-        else //We skip both these nodes if there coefficients sum to 0.
-        {
             p_poly_1 = p_poly_1->p_next;
             p_poly_2 = p_poly_2->p_next;
         }
@@ -132,12 +146,5 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
     {
         struct polynomial* p_remaining_terms = copy(p_poly_2);
         *pp_next_node = p_remaining_terms;
-    }
-
-    //The result could be 0 in which case the pointer will be NULL at this point
-    if (p_poly_1_copy == NULL)
-    {
-        p_poly_1_copy = create_node();
-    }
-    
+    }    
 }
