@@ -7,7 +7,7 @@
 /// <param name="p_poly">A pointer to the poltnomial to evaluate.</param>
 /// <param name="x">Value at which to evaluate the polynomial.</param>
 /// <returns>The result of the evaluation.</returns>
-double evaluate(const struct polynomial* p_poly, const double x);
+double evaluate(const struct polynomial* p_poly, double x);
 
 /// <summary>
 /// Asks the user whether they want to store a polynomial.
@@ -172,7 +172,7 @@ int store_polynomial()
     return store;
 }
 
-double evaluate(const struct polynomial* p_poly, const double x)
+double evaluate(const struct polynomial* p_poly, double x)
 {
     double value = 0;
     struct polynomial* p_temp_poly = p_poly;
