@@ -6,11 +6,11 @@ struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomia
     //the whole polynomial is 0. Id the first coefficient is non-zero then all the coefficients are non-zero.
     if (p_poly_1->coefficient == 0)
     {
-        return copy(p_poly_2);
+        return copy_polynomial(p_poly_2);
     }
     if (p_poly_2->coefficient == 0)
     {
-        return copy(p_poly_1);
+        return copy_polynomial(p_poly_1);
     }
 
     struct polynomial* p_result = NULL;
@@ -53,12 +53,12 @@ struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomia
     //Notice the tail will not be just 0 as this case is handled at the start of the function.
     if (p_poly_2 != NULL)
     {
-        struct polynomial* p_remaining_terms = copy(p_poly_2);
+        struct polynomial* p_remaining_terms = copy_polynomial(p_poly_2);
         *pp_result_next_node = p_remaining_terms;
     }
     else if (p_poly_1 != NULL)
     {
-        struct polynomial* p_remaining_terms = copy(p_poly_1);
+        struct polynomial* p_remaining_terms = copy_polynomial(p_poly_1);
         *pp_result_next_node = p_remaining_terms;
     }
 
@@ -83,7 +83,7 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
         *p_poly_1 = *p_poly_2;
         if (p_poly_2->p_next != NULL)
         {
-            p_poly_1->p_next = copy(p_poly_2->p_next);
+            p_poly_1->p_next = copy_polynomial(p_poly_2->p_next);
         }
         //TODO Check this is necessary
         else
@@ -144,7 +144,7 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
     //Notice the tail will not be just 0 as this case is handled at the start of the function.
     if (p_poly_2 != NULL)
     {
-        struct polynomial* p_remaining_terms = copy(p_poly_2);
+        struct polynomial* p_remaining_terms = copy_polynomial(p_poly_2);
         *pp_next_node = p_remaining_terms;
     }    
 }

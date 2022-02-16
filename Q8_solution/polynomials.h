@@ -64,21 +64,57 @@ struct polynomial* subtract(const struct polynomial* p_poly1, const struct polyn
 struct polynomial* multiply(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
 
 /// <summary>
-/// Evaluates the polynomial at the specified point x using Horner's method.
-/// </summary>
-/// <param name="p_poly">A pointer to the poltnomial to evaluate.</param>
-/// <param name="x">Value at which to evaluate the polynomial.</param>
-float evaluate(const struct polynomial* p_poly, float x);
-
-/// <summary>
 /// Coppies a polynomial and returns a pointer to the copy
 /// </summary>
 /// <param name="p_poly">The polynomial to copy.</param>
 /// <returns>A pointer to the copy.</returns>
-struct polynomial* copy(const struct polynomial* p_poly);
+struct polynomial* copy_polynomial(const struct polynomial* p_poly);
 
 /// <summary>
 /// Frees all memory assaciated with a polynomial.
 /// </summary>
 /// <param name="p_poly">A pointer to the polynomial to free.</param>
 void free_polynomial(struct polynomial* p_poly);
+
+/// <summary>
+/// Asks the user whether they want to store a polynomial.
+/// </summary>
+/// <returns>"i" if the polynomial is to replace polynomial_i, for i = 1,2.
+///          "0" if the polynomial is not to be stored</returns>
+int store_polynomial();
+
+/// <summary>
+/// Evaluates the polynomial at the specified point x using Horner's method.
+/// </summary>
+/// <param name="p_poly">A pointer to the poltnomial to evaluate.</param>
+/// <param name="x">Value at which to evaluate the polynomial.</param>
+/// <returns>The result of the evaluation.</returns>
+double evaluate(struct polynomial* p_poly, double x);
+
+/// <summary>
+/// Add case function.
+/// </summary>
+/// <param name="p_poly_1">The first polynomial.</param>
+/// <param name="p_poly_2">The second polynomial.</param>
+void case_3(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
+
+/// <summary>
+/// Subtract case function.
+/// </summary>
+/// <param name="p_poly_1">The first polynomial.</param>
+/// <param name="p_poly_2">The second polynomial.</param>
+void case_4(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
+
+/// <summary>
+/// Multiply case function.
+/// </summary>
+/// <param name="p_poly_1">The first polynomial.</param>
+/// <param name="p_poly_2">The second polynomial.</param>
+void case_5(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
+
+/// <summary>
+/// Evaluate case function.
+/// </summary>
+/// <param name="p_poly_1">The first polynomial.</param>
+/// <param name="p_poly_2">The second polynomial.</param>
+void case_6(struct polynomial* p_poly_1, struct polynomial* p_poly_2);
