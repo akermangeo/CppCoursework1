@@ -22,7 +22,7 @@ void append_fraction(int* p_start_pointer, int numerator, int denominator);
 
 int* find_fractions(int* p_fractions_length)
 {
-    int capacity = 10;
+    size_t capacity = 10;
     *p_fractions_length = 0;
     int* p_fractions = (int*) malloc(capacity * 2 * sizeof(int));
     
@@ -38,7 +38,7 @@ int* find_fractions(int* p_fractions_length)
                     capacity *= 4;
                     p_fractions = (int*)realloc(p_fractions, capacity * 2 * sizeof(int));
                 }
-                const int* first_digit_location = p_fractions + *p_fractions_length * 2;
+                int* first_digit_location = p_fractions + *p_fractions_length * 2;
                 append_fraction(first_digit_location, numerator, denominator);
                 (* p_fractions_length)++;
             }

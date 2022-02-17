@@ -7,12 +7,12 @@ program into functions and dividethem between files in an ordered way.)**/
 #include <stdlib.h>
 
 #include "fractionFinding.h"
-#include "fractionFinding.h"
+#include "fractionPrinting.h"
 
 int main(void)
 {
 	int fractions_length;
-	int* p_fractions = find_fractions(&fractions_length);
+	const int* p_fractions = find_fractions(&fractions_length);
 	print_fractions(p_fractions, fractions_length);
 	return EXIT_SUCCESS;
 }

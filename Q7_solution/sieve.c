@@ -35,7 +35,7 @@ int* aristhothenes_sieve(int max_prime, int* p_primes_length)
 	}
 
 	//Initialise the seive.
-	struct sieve_item* const p_prime_candidates = (struct sieve_item*)malloc((max_prime - 1) * sizeof(struct sieve_item));
+	struct sieve_item* const p_prime_candidates = (struct sieve_item*)malloc(((size_t)max_prime - 1) * sizeof(struct sieve_item));
 	for (int index = 0; index < (max_prime - 1); index++)
 	{
 		p_prime_candidates[index].prime_candidate = index + 2;
@@ -118,7 +118,6 @@ int sieve_for_primes(const struct sieve_item* p_sieve, int sieve_length)
 	//Loop through unchecked candidates.
 	while (p_candidate_tracker->prime_candidate <= number_to_check_limit)
 	{
-
 		//When you find one that is unchecked it must be prime.
 		//The first one is always unchecked
 		prime_counter++;

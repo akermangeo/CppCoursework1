@@ -22,7 +22,7 @@
     <ClInclude Include="ttt.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
+    <ClCompile Include="Q6_solution.c" />
     <ClCompile Include="ttt.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
