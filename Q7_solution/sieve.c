@@ -110,7 +110,7 @@ int sieve_for_primes(const struct sieve_item* p_sieve, int sieve_length)
 	double number_to_check_limit = sqrt((double)p_last_candidate->prime_candidate);
 
 	//Tracks which candidate we are currently excluding multiples of.
-	const struct sieve_item* p_candidate_tracker = p_sieve;
+	struct sieve_item* p_candidate_tracker = p_sieve;
 
 	//Count the primes.
 	int prime_counter = 0;

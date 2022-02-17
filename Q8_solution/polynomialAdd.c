@@ -35,10 +35,6 @@ struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomia
         }
         else if (p_poly_1->coefficient + p_poly_2->coefficient != 0)
         {
-            
-            
-            
-            
             *pp_result_next_node = create_node();
             **pp_result_next_node = *p_poly_1;
             (* pp_result_next_node)->coefficient += p_poly_2->coefficient;
@@ -52,6 +48,9 @@ struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomia
             p_poly_2 = p_poly_2->p_next;
         }
     }
+
+    //This may still be poiting to a poly1 or poly2 node.
+    *pp_result_next_node = NULL;
     
     //One of the polynomials may still have a tail that is unacounted for.
     //Notice the tail will not be just 0 as this case is handled at the start of the function.
@@ -97,7 +96,7 @@ void add_in_place(struct polynomial* p_poly_1, const struct polynomial* p_poly_2
         return;
     }
     
-    struct polynomial* p_poly_1_copy = p_poly_1;
+    const struct polynomial* p_poly_1_copy = p_poly_1;
     struct polynomial** pp_next_node = &p_poly_1;
 
     while (p_poly_1 != NULL && p_poly_2 != NULL)

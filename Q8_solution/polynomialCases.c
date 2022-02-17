@@ -97,6 +97,8 @@ double evaluate(const struct polynomial* p_poly, double x)
 {
     double value = 0;
     struct polynomial* p_temp_poly = NULL;
+
+    //TODO this line is a guaranteed crash
     *p_temp_poly = *p_poly;
     int exp1, exp2 = p_temp_poly->exponent;
 

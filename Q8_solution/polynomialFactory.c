@@ -54,6 +54,7 @@ struct polynomial* read_polynomial(int degree)
     {
         return next_poly;
     }
+
     struct polynomial* p_poly = create_node();
     p_poly->p_next = next_poly;
     p_poly->coefficient = coefficient;
@@ -66,7 +67,7 @@ struct polynomial* create_node()
     struct polynomial* node = (struct polynomial*)malloc(sizeof(struct polynomial));
     if (node == NULL)
     {
-        printf("Memory allocation failure. (initialise_poly)\n");
+        printf("Memory allocation failure. (create_node)\n");
         exit(1);
     }
     node->coefficient = 0;

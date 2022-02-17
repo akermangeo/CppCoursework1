@@ -11,34 +11,6 @@ int store_polynomial();
 
 int main()
 {
-    /*
-    struct polynomial* polynomial_temp;
-    double val = 3.14159;
-
-    printf("Define polynomial 1\n");
-    struct polynomial* polynomial_1 = polynomial_factory_method();
-    printf("Define polynomial 2\n");
-    struct polynomial* polynomial_2 = polynomial_factory_method();
-
-    polynomial_temp = add(polynomial_1, polynomial_2);
-    free_polynomial(polynomial_1);
-    polynomial_1 = polynomial_temp;
-    print_poly(polynomial_1);
-    polynomial_temp = multiply(polynomial_1, polynomial_2);
-    free_polynomial(polynomial_1);
-    polynomial_1 = polynomial_temp;
-    print_poly(polynomial_1);
-    printf("%lf\n", evaluate(polynomial_2, val));
-
-    printf("Goodbye!\n");
-
-    free_polynomial(polynomial_1);
-    free_polynomial(polynomial_2);
-
-    return EXIT_SUCCESS;
-    */
-
-    // /*
 
     int choice, store;
     
