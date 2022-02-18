@@ -96,24 +96,21 @@ void case_6(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2
 double evaluate(const struct polynomial* p_poly, double x)
 {
     double value = 0;
-    struct polynomial* p_temp_poly = NULL;
+    
+    int exp1, exp2 = p_poly->exponent;
 
-    //TODO this line is a guaranteed crash
-    *p_temp_poly = *p_poly;
-    int exp1, exp2 = p_temp_poly->exponent;
-
-    while (p_temp_poly != NULL)
+    while (p_poly != NULL)
     {
-        exp1 = p_temp_poly->exponent;
-        value += p_temp_poly->coefficient;
+        exp1 = p_poly->exponent;
+        value += p_poly->coefficient;
 
-        if (p_temp_poly->exponent != 0)
+        if (p_poly->exponent != 0)
         {
             value *= x;
         }
 
         exp2 = exp1;
-        p_temp_poly = p_temp_poly->p_next;
+        p_poly = p_poly->p_next;
     }
 
     return value;
