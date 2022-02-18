@@ -96,20 +96,14 @@ void case_6(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2
 double evaluate(const struct polynomial* p_poly, double x)
 {
     double value = 0;
-    
-    int exp1, exp2 = p_poly->exponent;
 
     while (p_poly != NULL)
     {
-        exp1 = p_poly->exponent;
         value += p_poly->coefficient;
-
         if (p_poly->exponent != 0)
         {
             value *= x;
         }
-
-        exp2 = exp1;
         p_poly = p_poly->p_next;
     }
 

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main()
-{   
+{
 
     char char1;
     char char2;
