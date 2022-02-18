@@ -7,61 +7,47 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define NUM_CHAR 200
-#define FALSE 0
-#define TRUE 1
+/// <summary>
+/// Reads in the given number of caracters and reverses them.
+/// </summary>
+/// <param name="caracters_to_reverse">The number of characters to reverse.</param>
+void reverse_characters(int characters_to_reverse);
 
-int check_string_len(const char* p_str, int len, int* p_actual_len)
-{
-    static int i;
-    for (i = 0; p_str[i] != '\0'; ++i);
-    *p_actual_len = i;
-    if (i == len)
-    {
-        return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
-}
-
-char* reverse_string(const char* p_str)
-{
-    static int i = 0;
-    static char str_rev[NUM_CHAR + 1];
-    if (*p_str)
-    {
-        reverse_string(p_str + 1);
-        str_rev[i++] = *p_str;
-    }
-    return str_rev;
-}
+/// <summary>
+/// Reads a single caracter from the user.
+/// </summary>
+/// <returns>The character read from the user.</returns>
+char read_character();
 
 int main(void)
 {
-    char string[NUM_CHAR + 1];
-    char* p_rev_string;
-    int actual_string_length, check_str;
+    printf("Input 200 characters\n");
+    printf("White space characters will be ignored as will any characters after the first 200.");
+    reverse_characters(200);
+}
 
-    printf("Input string of %d characters: ", NUM_CHAR);
-    scanf("%s", string);
-
-    // To do this for strings upto NUM_CHAR characters long, quote the part below out
-    check_str = check_string_len(string, NUM_CHAR, &actual_string_length);
-
-    if (check_str == FALSE)
+void reverse_characters(int characters_to_reverse)
+{
+    char character = read_character();
+    if (characters_to_reverse == 1)
     {
-        printf("Wrong input string length.\n");
-        printf("Expected %d, got %d.\n", NUM_CHAR, actual_string_length);
-        return EXIT_FAILURE;
+        printf("The caracters reversed are... ");
     }
-    //
+    else
+    {
+        reverse_characters(characters_to_reverse - 1);
+    }
+    printf("%c", character);
+}
 
-    p_rev_string = reverse_string(string);
-
-    printf("\nYour string reversed is: %s\n\n", p_rev_string);
-    printf("(Your string was: %s)\n", string);
-
-    return EXIT_SUCCESS;
+char read_character()
+{
+    char character;
+    int input_counter = scanf_s(" %c", &character, 1);
+    if (input_counter < 1)
+    {
+        printf("Invalid input. Exiting... ");
+        exit(1);
+    }
+    return character;
 }

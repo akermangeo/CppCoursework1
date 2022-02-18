@@ -9,12 +9,10 @@ char read_character();
 
 int main()
 {
-    printf("Input 2 characters (white pace characters will be ignored as will any characters after teh first 2): ");
+    printf("Input 2 characters (white space characters will be ignored as will any characters after the first 2): ");
     char char1 = read_character();
     char char2 = read_character();
     printf("Output char:%c %c \n", char2, char1);
-
-
     return EXIT_SUCCESS;
 }
 
