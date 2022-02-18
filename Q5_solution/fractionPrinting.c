@@ -17,6 +17,7 @@ void print_fractions(const int* p_fractions, int fractions_length)
 		int denominator = p_fractions[index + 1];
 		print_fraction(numerator, denominator);
 	}
+	printf("Total working sleepy results: %i", fractions_length);
 }
 
 void static print_fraction(int numerator, int denominator)

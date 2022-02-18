@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "fractionFinding.h"
 
@@ -36,7 +37,13 @@ int* find_fractions(int* p_fractions_length)
                 if (*p_fractions_length == capacity)
                 {
                     capacity *= 4;
-                    p_fractions = (int*)realloc(p_fractions, capacity * 2 * sizeof(int));
+                    int* p_temp_pointer = (int*)realloc(p_fractions, capacity * 2 * sizeof(int));
+                    if (p_temp_pointer == NULL)
+                    {
+                        printf("Memory allocation failure. (find_fractions)\n");
+                        exit(1);
+                    }
+                    p_fractions = p_temp_pointer;
                 }
                 int* first_digit_location = p_fractions + *p_fractions_length * 2;
                 append_fraction(first_digit_location, numerator, denominator);
