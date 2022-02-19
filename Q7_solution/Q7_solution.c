@@ -6,7 +6,7 @@
 
 
 int main() {
-    int max_prime = 10;
+    int max_prime = 100;
 
     //to hold the length of the array
     int primes_length = 0;
