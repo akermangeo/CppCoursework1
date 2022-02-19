@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ttt.h" />
+    <ClInclude Include="ticTacToe.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Q6_solution.c" />
-    <ClCompile Include="ttt.c" />
+    <ClCompile Include="ticTacToe.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
