@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ticTacToe.h" />
+    <ClInclude Include="userInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Q6_solution.c" />
     <ClCompile Include="ticTacToe.c" />
+    <ClCompile Include="userInput.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
