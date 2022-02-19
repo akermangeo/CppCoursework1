@@ -1,5 +1,8 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "polynomials.h"
-#include "polynomialCases.h"
+#include "userIO.h"
 
 /// <summary>
 /// Evaluates the polynomial at the specified point x using Horner's method.
@@ -7,26 +10,21 @@
 /// <param name="p_poly">A pointer to the poltnomial to evaluate.</param>
 /// <param name="x">Value at which to evaluate the polynomial.</param>
 /// <returns>The result of the evaluation.</returns>
-double evaluate(const struct polynomial* p_poly, double x);
+float evaluate(const struct polynomial* p_poly, float x);
 
-void case_3(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
+void case_add(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
-    struct polynomial* p_poly_temp2 = add(p_poly_1, p_poly_2);
-    *p_poly_temp = *p_poly_temp2;
+    *p_poly_temp = *add(p_poly_1, p_poly_2);
     printf("Sum = ");
     print_poly(p_poly_temp);
-    free(p_poly_temp2);
 }
 
-void case_4(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
+void case_subtract(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
     printf("Which polynomial would you like to subract from the other?\n");
     printf("(1 - Subtract Polynomial 1 from 2, 2 - Subtract Polynomial 2 from 1)\n");
-    int sub = 0;
-    scanf_s("%d", &sub);
+    int sub = read_int();
 
-    struct polynomial* p_poly_temp2 = NULL;
-    struct polynomial* p_poly_temp3 = NULL;
 
     struct polynomial p_poly_minus;
     p_poly_minus.coefficient = -1;
@@ -35,13 +33,13 @@ void case_4(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, c
 
     if (sub == 1)
     {
-        p_poly_temp2 = multiply(p_poly_1, &p_poly_minus);
-        p_poly_temp3 = add(p_poly_temp2, p_poly_2);
+        *p_poly_temp = *multiply(p_poly_1, &p_poly_minus);
+        add_in_place(p_poly_temp, p_poly_2);
     }
     else if (sub == 2)
     {
-        p_poly_temp2 = multiply(p_poly_2, &p_poly_minus);
-        p_poly_temp3 = add(p_poly_1, p_poly_temp2);
+        *p_poly_temp = *multiply(p_poly_2, &p_poly_minus);
+        add_in_place(p_poly_temp, p_poly_1);
     }
     else
     {
@@ -49,27 +47,22 @@ void case_4(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, c
         return;
     }
 
-    *p_poly_temp = *p_poly_temp3;
     printf("Subtraction = ");
     print_poly(p_poly_temp);
-    free_polynomial(p_poly_temp2);
-    free(p_poly_temp3);
 }
 
-void case_5(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
+void case_multiply(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
-    struct polynomial* p_poly_temp2 = multiply(p_poly_1, p_poly_2);
-    *p_poly_temp = *p_poly_temp2;
+    *p_poly_temp = *multiply(p_poly_1, p_poly_2);
     printf("Product = ");
     print_poly(p_poly_temp);
-    free(p_poly_temp2);
 }
 
-void case_6(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
+void case_evaluate(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)
 {
-    int poly_eval;
+    
     printf("Which polynomial would you like to evaluate? (1/2) ");
-    scanf_s("%d", &poly_eval);
+    int poly_eval = read_int();
 
     if (poly_eval != 1 && poly_eval != 2)
     {
@@ -77,9 +70,9 @@ void case_6(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2
         return;
     }
 
-    double val, result;
+    float result;
     printf("At what value would you like to evaluate polynomial %d? (input float) ", poly_eval);
-    scanf_s("%lf", &val);
+    float val = read_float();
 
     if (poly_eval == 1)
     {
@@ -93,10 +86,9 @@ void case_6(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2
     printf("Result = %f\n", result);
 }
 
-double evaluate(const struct polynomial* p_poly, double x)
+float evaluate(const struct polynomial* p_poly, float x)
 {
-    double value = 0;
-
+    float value = 0;
     while (p_poly != NULL)
     {
         value += p_poly->coefficient;
@@ -106,6 +98,5 @@ double evaluate(const struct polynomial* p_poly, double x)
         }
         p_poly = p_poly->p_next;
     }
-
     return value;
 }

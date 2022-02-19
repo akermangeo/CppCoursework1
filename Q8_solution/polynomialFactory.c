@@ -1,4 +1,8 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "polynomials.h"
+#include "userIO.h"
 
 /// <summary>
 /// Reads a polynomial of a given degree from the user.
@@ -9,9 +13,8 @@ struct polynomial* read_polynomial(int degree);
 
 struct polynomial* polynomial_factory_method()
 {
-    int max_degree;
     printf("Please enter the degree of the polynomial: ");
-    scanf_s("%i", &max_degree);
+    int max_degree = read_int();
 
     if (max_degree < 0)
     {
@@ -31,14 +34,9 @@ struct polynomial* polynomial_factory_method()
 
 struct polynomial* read_polynomial(int degree)
 {
-    float coefficient;
     printf("Please input coefficient for x^%d: ", degree);
 
-    if (scanf_s("%f", &coefficient) != 1) 
-    {
-        printf("Invalid ceofficient. Exiting...\n");
-        exit(1);
-    }
+    float coefficient = read_float();
 
     struct polynomial* next_poly;
     if (degree == 0)

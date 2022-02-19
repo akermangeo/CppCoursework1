@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 /// <summary>
 /// A struct to represent a polynomial node. It is assumed that p_next always points to a node of strictly lower exponent.
 /// The last node in the polynomial will have p_next pointing to NULL. None of the coefficients can be 0 unless the
@@ -67,3 +63,10 @@ struct polynomial* copy_polynomial(const struct polynomial* p_poly);
 /// </summary>
 /// <param name="p_poly">A pointer to the polynomial to free.</param>
 void free_polynomial(struct polynomial* p_poly);
+
+/// <summary>
+/// Evaluate case function.
+/// </summary>
+/// <param name="p_poly_1">The first polynomial.</param>
+/// <param name="p_poly_2">The second polynomial.</param>
+void case_evaluate(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);

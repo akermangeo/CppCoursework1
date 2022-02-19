@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "polynomials.h"
 
 struct polynomial* add(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2)

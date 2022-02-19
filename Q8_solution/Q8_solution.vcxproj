@@ -143,11 +143,12 @@
     <ClCompile Include="polynomialCases.c" />
     <ClCompile Include="polynomialFactory.c" />
     <ClCompile Include="polynomialMultiply.c" />
-    <ClCompile Include="polynomials.c" />
+    <ClCompile Include="Q8_solution.c" />
+    <ClCompile Include="userIO.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="polynomialCases.h" />
     <ClInclude Include="polynomials.h" />
+    <ClInclude Include="userIO.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
