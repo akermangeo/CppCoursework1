@@ -1,8 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 #include "polynomials.h"
 #include "userIO.h"
+
 
 /// <summary>
 /// Asks the user whether they want to store a polynomial and replaces that polynomial with p_poly_temp.
@@ -41,7 +43,7 @@ int main()
     printf("Define polynomial 2\n");
     struct polynomial* polynomial_2 = polynomial_factory_method();
     
-    int choice;
+    int choice = 0;
     do
     {
         printf("1 : Print polynomial 1\n");
@@ -59,7 +61,6 @@ int main()
 
         switch (choice)
         {
-
         case 1:
             printf("Polynomial 1 = ");
             print_poly(polynomial_1);
