@@ -19,7 +19,7 @@ int game();
 /// /// <param name="board_len">The len of the board array.</param>
 /// /// <param name="index">The index on the board ('1' - '9').</param>
 /// /// <param name="player">The player (X/O).</param>
-void play_move(char board[], int board_len, char index, char player);
+void play_move(char board[], int board_len, int index, char player);
 
 /// <summary>
 /// Print the board in a 3x3 matrix. 

@@ -27,7 +27,7 @@ int game()
             legal_move = is_legal_move(x_move);
         }
 
-        play_move(magic_board, BOARD_SIZE, (char)(x_move + '0'), 'X');
+        play_move(magic_board, BOARD_SIZE, x_move, 'X');
         pretty_print_board();
 
         /*Check wether X has win*/
@@ -52,7 +52,7 @@ int game()
             legal_move = is_legal_move(o_move);
         }
 
-        play_move(magic_board, BOARD_SIZE, (char)(o_move + '0'), 'O');
+        play_move(magic_board, BOARD_SIZE, o_move, 'O');
         pretty_print_board();
 
 
@@ -133,8 +133,9 @@ void arr_append(char arr[], int arr_len, char player)
 }
 
 
-void play_move(char board[], int board_len, char index, char player)
+void play_move(char board[], int board_len, int int_index, char player)
 {
+    char index = (char)(int_index + '0');
 
     for (int i = 0; i < board_len; i++) {
         if (board[i] == index) {
