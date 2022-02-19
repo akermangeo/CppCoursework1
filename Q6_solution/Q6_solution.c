@@ -1,6 +1,6 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
-#include "ttt.h"
+#include "ticTacToe.h"
 
 
 
