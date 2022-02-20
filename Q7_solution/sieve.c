@@ -81,9 +81,14 @@ int* aristhothenes_sieve_advanced(int max_prime, int* p_primes_length)
 	if (max_prime == 2)
 	{
 		*p_primes_length = 1;
-		int* primes = (int*)malloc(sizeof(int));
-		*primes = 2;
-		return primes;
+		int* p_primes = (int*)malloc(sizeof(int));
+		if (p_primes == NULL)
+		{
+			printf("Memory allocation failure. (aristhothenes_sieve_advanced)\n");
+			exit(1);
+		}
+		*p_primes = 2;
+		return p_primes;
 	}
 
 	//Initialise the seive with just odd numbers. The prime 2 will be re-included later.
@@ -132,7 +137,7 @@ int sieve_for_primes(const struct sieve_item* p_sieve, int sieve_length)
 	double number_to_check_limit = sqrt((double)p_last_candidate->prime_candidate);
 
 	//Tracks which candidate we are currently excluding multiples of.
-	struct sieve_item* p_candidate_tracker = p_sieve;
+	const struct sieve_item* p_candidate_tracker = p_sieve;
 
 	//Count the p_primes.
 	int prime_counter = 0;
