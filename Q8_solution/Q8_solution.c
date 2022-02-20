@@ -5,13 +5,13 @@
 #include "polynomials.h"
 #include "userIO.h"
 
-
 /// <summary>
 /// Asks the user whether they want to store a polynomial and replaces that polynomial with p_poly_temp.
 /// </summary>
 /// <param name="p_poly_temp">The polynomial to replace another.</param>
 /// <param name="p_poly_1">The first polynomial.</param>
 /// <param name="p_poly_2">The second polynomial.</param>
+/// <returns>1 (resp. 2) if the user selects to store the polynomial in poly_1 (resp. poly_2). 0 represents do not store.</returns>
 int store_polynomial();
 
 /// <summary>
@@ -19,21 +19,24 @@ int store_polynomial();
 /// </summary>
 /// <param name="p_poly_1">The first polynomial.</param>
 /// <param name="p_poly_2">The second polynomial.</param>
-void case_add(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
+/// <returns>A pointer to the result.</returns>
+struct polynomial* case_add(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
 
 /// <summary>
 /// Subtract case function.
 /// </summary>
 /// <param name="p_poly_1">The first polynomial.</param>
 /// <param name="p_poly_2">The second polynomial.</param>
-void case_subtract(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
+/// <returns>A pointer to the result.</returns>
+struct polynomial* case_subtract(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
 
 /// <summary>
 /// Multiply case function.
 /// </summary>
 /// <param name="p_poly_1">The first polynomial.</param>
 /// <param name="p_poly_2">The second polynomial.</param>
-void case_multiply(struct polynomial* p_poly_temp, const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
+/// <returns>A pointer to the result.</returns>
+struct polynomial* case_multiply(const struct polynomial* p_poly_1, const struct polynomial* p_poly_2);
 
 
 int main()
@@ -42,7 +45,7 @@ int main()
     struct polynomial* polynomial_1 = polynomial_factory_method();
     printf("Define polynomial 2\n");
     struct polynomial* polynomial_2 = polynomial_factory_method();
-    
+
     int choice = 0;
     do
     {
@@ -57,10 +60,11 @@ int main()
         
         choice = read_int();
 
-        struct polynomial* polynomial_temp = create_node();
+        struct polynomial* polynomial_temp = NULL;
 
         switch (choice)
         {
+
         case 1:
             printf("Polynomial 1 = ");
             print_poly(polynomial_1);
@@ -72,15 +76,15 @@ int main()
             break;
 
         case 3:
-            case_add(polynomial_temp, polynomial_1, polynomial_2);
+            polynomial_temp = case_add(polynomial_1, polynomial_2);
             break;
 
         case 4:
-            case_subtract(polynomial_temp, polynomial_1, polynomial_2);
+            polynomial_temp = case_subtract(polynomial_1, polynomial_2);
             break;
 
         case 5:
-            case_multiply(polynomial_temp, polynomial_1, polynomial_2);
+            polynomial_temp = case_multiply(polynomial_1, polynomial_2);
             break;
 
         case 6:
@@ -106,16 +110,19 @@ int main()
             if (store == 0)
             {
                 free_polynomial(polynomial_temp);
+                polynomial_temp = NULL;
             }
             else if (store == 1)
             {
                 free_polynomial(polynomial_1);
                 polynomial_1 = polynomial_temp;
+                polynomial_temp = NULL;
             }
             else if (store == 2)
             {
                 free_polynomial(polynomial_2);
                 polynomial_2 = polynomial_temp;
+                polynomial_temp = NULL;
             }
         }
     } while (0 < choice && choice < 7);
@@ -163,13 +170,11 @@ struct polynomial* copy_polynomial(const struct polynomial* p_poly)
 
 void free_polynomial(struct polynomial* p_poly)
 {
-    while (p_poly->p_next != NULL)
+    if (p_poly != NULL)
     {
-        struct polynomial* p_next_poly = p_poly->p_next;
+        free_polynomial(p_poly->p_next);
         free(p_poly);
-        p_poly = p_next_poly;
     }
-    free(p_poly);
 }
 
 int store_polynomial()
