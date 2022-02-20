@@ -57,7 +57,7 @@ int main()
         printf("6 : Evaluate a polynomial\n");
         printf("7 : Quit\n");
         printf("Input the number corresponding to your option choice: ");
-        
+
         choice = read_int();
 
         struct polynomial* polynomial_temp = NULL;
@@ -97,11 +97,11 @@ int main()
             free_polynomial(polynomial_temp);
             printf("Goodbye!\n");
             return EXIT_SUCCESS;
-        
+
         default:
             printf("Invalid input, exiting...");
             return EXIT_SUCCESS;
-        }   
+        }
 
         if (choice == 3 || choice == 4 || choice == 5)
         {
@@ -146,7 +146,7 @@ void print_poly(const struct polynomial* p_poly)
             printf("%.2fx^%d", fabs(p_poly->coefficient), p_poly->exponent);
         }
         p_poly = p_poly->p_next;
-        
+
     }
     printf("\n");
 }

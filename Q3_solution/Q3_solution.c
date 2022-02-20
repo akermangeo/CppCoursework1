@@ -1,8 +1,8 @@
-/* 
+/*
 	Write a program that reads numbers until a negative number is read and prints out the number of
 	values read, the largest value, the smallest value, and the range.
 
-	We have interpreted the problem as the negative number is not read and therefore not included 
+	We have interpreted the problem as the negative number is not read and therefore not included
 	in the minimum and maximum value read and the range outputs.
 */
 

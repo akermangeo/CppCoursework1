@@ -18,19 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ticTacToe.h" />
-    <ClInclude Include="userInput.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Q6_solution.c" />
-    <ClCompile Include="ticTacToe.c" />
-    <ClCompile Include="userInput.c" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6d7315ee-824e-4dca-9848-7bf39f8975ad}</ProjectGuid>
+    <ProjectGuid>{e2ff51da-62e0-4177-ab4a-cc21710d8c4b}</ProjectGuid>
     <RootNamespace>Q6solution</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -151,6 +142,15 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Q6_solution.c" />
+    <ClCompile Include="TicTacToe.c" />
+    <ClCompile Include="userInput.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ticTacToe.h" />
+    <ClInclude Include="userInput.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{87ced8e9-cb3e-45af-9a63-86b91504b55d}</ProjectGuid>
+    <ProjectGuid>{d8a4aff4-d769-40e4-883a-16256cb5da28}</ProjectGuid>
     <RootNamespace>Q7solution</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c98f12e6-b4f7-4983-98ae-89810dfb823f}</ProjectGuid>
+    <ProjectGuid>{7422665d-e812-47ef-b2b0-a4ca26c0557e}</ProjectGuid>
     <RootNamespace>Q5solution</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
