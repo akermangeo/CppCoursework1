@@ -1,6 +1,6 @@
 #include <stdbool.h>
 
-#include "TicTacToe.h"
+#include "ticTacToe.h"
 #include "userInput.h"
 
 static char magic_board[BOARD_SIZE] = { '2', '9', '4', '7', '5', '3', '6', '1', '8' };

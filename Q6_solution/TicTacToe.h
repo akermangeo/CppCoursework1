@@ -15,10 +15,10 @@ int game();
 /// <summary>
 /// Given the player (X/O) and the selected index of the board, position (substitute) the move of the player on the board.
 /// </summary>
-/// /// <param name="board">The board array. By default I am using magic_board. </param>
-/// /// <param name="board_len">The len of the board array.</param>
-/// /// <param name="index">The index on the board ('1' - '9').</param>
-/// /// <param name="player">The player (X/O).</param>
+/// <param name="board">The board array. By default I am using magic_board. </param>
+/// <param name="board_len">The len of the board array.</param>
+/// <param name="index">The index on the board ('1' - '9').</param>
+/// <param name="player">The player (X/O).</param>
 void play_move(char board[], int board_len, int index, char player);
 
 /// <summary>
@@ -31,7 +31,7 @@ void pretty_print_board();
 /// This function is mainly used for void position(char board[], int board_len, char index, char player). 
 /// This game is functioning by recording the moves of X and O. Hence it is appending `player` to char[] `player`_moves.
 /// </summary>
-/// /// <param name="player">The player (X/O).</param>
+/// <param name="player">The player (X/O).</param>
 void arr_append(char arr[], int arr_len, char player);
 
 /// <summary>
