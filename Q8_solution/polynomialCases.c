@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 #include "polynomials.h"
 #include "userIO.h"
@@ -98,10 +99,17 @@ float evaluate(const struct polynomial* p_poly, float x)
     while (p_poly != NULL)
     {
         value += p_poly->coefficient;
-        if (p_poly->exponent != 0)
+        int power_diff;
+        if (p_poly->p_next != NULL)
         {
-            value *= x;
+            power_diff = p_poly->exponent - p_poly->p_next->exponent;
         }
+        else
+        {
+            power_diff = p_poly->exponent;
+        }
+        value *= powf(x, (float)power_diff);
+        
         p_poly = p_poly->p_next;
     }
     return value;
