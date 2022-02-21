@@ -19,12 +19,19 @@ int main() {
     int* p_primes_length = &primes_length;
 
     const int* p_primes = aristhothenes_sieve(max_prime, p_primes_length);
-    printf("All primes less than or equal to %d using standard sieve of aristhothenes \n", max_prime);
-    print_primes(p_primes, *p_primes_length);
-
+    if (*p_primes_length > 0)
+    {
+        printf("All primes less than or equal to %d using standard sieve of aristhothenes \n", max_prime);
+        print_primes(p_primes, *p_primes_length);
+    }
+    free(p_primes);
     p_primes = aristhothenes_sieve_advanced(max_prime, p_primes_length);
-    printf("All primes less than or equal to %d using advanced sieve of aristhothenes \n", max_prime);
-    print_primes(p_primes, *p_primes_length);
+    if (*p_primes_length > 0)
+    {
+        printf("All primes less than or equal to %d using advanced sieve of aristhothenes \n", max_prime);
+        print_primes(p_primes, *p_primes_length);
+    }
+    free(p_primes);
 }
 
 int read_int()
