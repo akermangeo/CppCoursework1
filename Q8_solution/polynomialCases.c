@@ -100,6 +100,7 @@ float evaluate(const struct polynomial* p_poly, float x)
     {
         value += p_poly->coefficient;
         int power_diff;
+        //There may be a 'gap' in the polynomial in which case you multiply by x multiple times
         if (p_poly->p_next != NULL)
         {
             power_diff = p_poly->exponent - p_poly->p_next->exponent;
